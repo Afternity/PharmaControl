@@ -5,10 +5,38 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmaControl.WPF.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="800" Width="1200"
+        WindowStartupLocation="CenterScreen">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="160"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
 
-        
+        <Border Margin="10" Grid.Column="1" Grid.Row="1">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"  Color="Black" Direction="5"/>
+            </Border.Effect>
 
+            <Grid Background="White">
+                <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Border>
+
+        <Button x:Name="ShowProfileWindowButton" Click="ShowProfileWindowButton_Click" Content="Профиль" Grid.Column="1" HorizontalAlignment="Right"/>
+
+        <StackPanel Grid.Row="1">
+
+            <Button x:Name="ShowSalePageButton" Click="ShowSalePageButton_Click"  Content="Продажи" Grid.Column="1" HorizontalAlignment="Right" Margin="5 5 5 30"/>
+            <Button x:Name="ShowMedicinePageButton" Click="ShowMedicinePageButton_Click"  Content="Леканства" Grid.Column="1" HorizontalAlignment="Right"/>
+            <Button x:Name="ShowMedicineTypePageButton" Click="ShowMedicineTypePageButton_Click"  Content="Типы лекарств" Grid.Column="1" HorizontalAlignment="Right"/>
+            <Button x:Name="ShowPharmacyPageButton" Click="ShowPharmacyPageButton_Click"  Content="Аптеки" Grid.Column="1" HorizontalAlignment="Right" Margin="5 30 5 5"/>
+
+        </StackPanel>
     </Grid>
 </Window>

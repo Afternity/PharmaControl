@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmaControl.WPF.Windows"
         mc:Ignorable="d"
-        Title="PharmacyStockInfoWindow" Height="450" Width="800">
+        Title="PharmacyStockInfoWindow" Height="120" Width="450"
+        Loaded="Window_Loaded">
     <Grid>
-        
+        <Border Margin="10">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"  Color="Black" Direction="5"/>
+            </Border.Effect>
+            <Grid Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Колличество:" VerticalAlignment="Bottom"/>
+                <TextBlock Text="Минимальное колчество:" Grid.Row="1" VerticalAlignment="Top"/>
+                <TextBlock Text="Количество для повторного заказа:" Grid.Row="2" VerticalAlignment="Top"/>
+
+                <TextBox x:Name="QuantityTextBox" Grid.Column="1" IsReadOnly="True"/>
+                <TextBox x:Name="MinStockLevelTextBox" Grid.Column="1" Grid.Row="1" IsReadOnly="True"/>
+                <TextBox x:Name="ReorderQuantityTextBox" Grid.Column="1" Grid.Row="2" IsReadOnly="True"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

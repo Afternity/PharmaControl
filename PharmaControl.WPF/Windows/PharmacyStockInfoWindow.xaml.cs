@@ -26,6 +26,19 @@ namespace PharmaControl.WPF.Windows
             _pharmacy = PharmacyProfile.Profile;
         }
 
+        private async void Window_Loaded(
+            object sender,
+            RoutedEventArgs e)
+        {
+            var entity = await GetPharmacyStockAsync(
+                _medicine,
+                _pharmacy);
+
+            QuantityTextBox.Text = entity.Quantity.ToString();
+            MinStockLevelTextBox.Text = entity.MinStockLevel.ToString();
+            ReorderQuantityTextBox.Text = entity.ReorderQuantity.ToString();
+        }
+
         public async Task<PharmacyStock> GetPharmacyStockAsync(
             Medicine medicine,
             Pharmacy pharmacy)

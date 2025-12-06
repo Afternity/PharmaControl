@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmaControl.WPF.Windows"
         mc:Ignorable="d"
-        Title="AuthWindow" Height="450" Width="800">
+        Title="Авторизация" Height="200" Width="400" 
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+
+        <Border Margin="33">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"  Color="Black" Direction="5"/>
+            </Border.Effect>
+            <Grid Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Email:" VerticalAlignment="Bottom"/>
+                <TextBlock Text="Пароль:" Grid.Row="1" VerticalAlignment="Bottom"/>
+
+                <TextBox x:Name="EmailTextBox" Grid.Column="1"/>
+                <TextBox x:Name="PasswordTextBox" Grid.Column="1" Grid.Row="1"/>
+
+                <Button x:Name="AuthButton" Click="AuthButton_Click" Content="Вход" Grid.Column="1" Grid.Row="2"/>
+            </Grid>
+        </Border>
+
     </Grid>
 </Window>

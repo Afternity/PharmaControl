@@ -10,7 +10,7 @@ namespace PharmaControl.WPF.Windows
     /// <summary>
     /// Логика взаимодействия для MedicineTypeInfoWindow.xaml
     /// </summary>
-    public partial class MedicineTypeInfoWindow 
+    public partial class MedicineTypeInfoWindow
         : Window,
         IMedicineTypeInfo
     {
@@ -22,6 +22,16 @@ namespace PharmaControl.WPF.Windows
             InitializeComponent();
             _context = new PharmaControlDbContext();
             _medicine = MedicineProfile.Profile;
+        }
+
+        private async void Window_Loaded(
+            object sender,
+            RoutedEventArgs e)
+        {
+            var entity = await GetMedicineTypeAsync(_medicine);
+
+            NameTextBox.Text = entity.Name;
+            DescriptionTextBox.Text = entity.Description;
         }
 
         public async Task<MedicineType> GetMedicineTypeAsync(

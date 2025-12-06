@@ -4,6 +4,8 @@ namespace PharmaControl.Domain.Interfaces.MainInterfaces
 {
     public interface IProfile
     {
+        Task UpdateEmployeeAsync(
+            Employee model);
         Task<int> GetPharmacySaleCountAsync(
             Employee employee,
             Pharmacy pharmacy);

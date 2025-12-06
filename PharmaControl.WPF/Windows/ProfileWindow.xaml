@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmaControl.WPF.Windows"
         mc:Ignorable="d"
-        Title="ProfileWindow" Height="450" Width="800">
+        Title="ProfileWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
     <Grid>
 
         <Border Margin="30">
@@ -14,14 +15,59 @@
             </Border.Effect>
             <Grid Background="White">
                 <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
+
+                <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.ColumnSpan="3">
+                    <Button Content="Назад" x:Name="GoBackButton" Click="GoBackButton_Click"/>
+                    <Button Content="Авторизация" x:Name="ShowAuthWindowButton" Click="ShowAuthWindowButton_Click"/>
+                </StackPanel>
+
+                <TextBlock Text="Полное имя:" Grid.Row="1"/>
+                <TextBlock Text="Email:" Grid.Row="2"/>
+                <TextBlock Text="Пароль:" Grid.Row="3"/>
+                <TextBlock Text="Телефон:" Grid.Row="4"/>
+
+                <TextBox x:Name="FullNameTextBox" Grid.Row="1" Grid.Column="1"/>
+                <TextBox x:Name="EmailTextBox" Grid.Row="2" Grid.Column="1"/>
+                <TextBox x:Name="PasswordTextBox" Grid.Row="3" Grid.Column="1"/>
+                <TextBox x:Name="PhoneTextBox" Grid.Row="4" Grid.Column="1"/>
+
+                <Button Content="Редактировать" x:Name="UpdateProfileButton" Click="UpdateProfileButton_Click" Grid.Row="5" Grid.Column="1"/>
+
+                <TextBlock Text="Название:" Grid.Row="1" Grid.Column="3"/>
+                <TextBlock Text="Адрес:" Grid.Row="2" Grid.Column="3"/>
+                <TextBlock Text="Контактный номер:" Grid.Row="3" Grid.Column="3"/>
+                <TextBlock Text="Email:" Grid.Row="4" Grid.Column="3"/>
+                <TextBlock Text="Открыто с:" Grid.Row="6" Grid.Column="3"/>
+                <TextBlock Text="Закрыто с:" Grid.Row="7" Grid.Column="3"/>
+
+                <TextBox x:Name="PharmacyNameTextBox" Grid.Row="1" Grid.Column="4" IsReadOnly="True"/>
+                <TextBox x:Name="PharmacyAddressTextBox" Grid.Row="2" Grid.Column="4" IsReadOnly="True"/>
+                <TextBox x:Name="PharmacyPhoneNumberTextBox" Grid.Row="3" Grid.Column="4" IsReadOnly="True"/>
+                <TextBox x:Name="PharmacyEmailTextBox" Grid.Row="4" Grid.Column="4" IsReadOnly="True"/>
+                <TextBox x:Name="PharmacyOpeningTimeTextBox" Grid.Row="6" Grid.Column="4" IsReadOnly="True"/>
+                <TextBox x:Name="PharmacyClosingTimeTextBox" Grid.Row="7" Grid.Column="4" IsReadOnly="True"/>
+
+                <TextBlock Text="Кол-во продаж в аптеке:" Grid.Row="8" Grid.Column="3"/>
+                <TextBox x:Name="CountTextBox" IsReadOnly="True" Grid.Row="8" Grid.Column="4"/>
             </Grid>
         </Border>
 

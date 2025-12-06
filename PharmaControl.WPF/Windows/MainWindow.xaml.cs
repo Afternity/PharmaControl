@@ -17,8 +17,33 @@ namespace PharmaControl.WPF.Windows
         public MainWindow()
         {
             InitializeComponent();
+            _frame = MainFrame;
         }
 
+        private void ShowProfileWindowButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowProfileWindow();
+        }
+
+        private void ShowMedicinePageButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowMedicinePage();
+        }
+
+        private void ShowMedicineTypePageButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowMedicineTypePage();
+        }
+
+        private void ShowPharmacyPageButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowPharmacyPage();
+        }
+
+        private void ShowSalePageButton_Click(object sender, RoutedEventArgs e)
+        {
+            ShowSalePagePage();
+        }
         public void ShowMedicinePage()
         {
             _frame.Navigate(new MedicinePage());
@@ -38,7 +63,6 @@ namespace PharmaControl.WPF.Windows
         {
             var window = new ProfileWindow();
             window.Show();
-            this.Close();
         }
 
         public void ShowSalePagePage()

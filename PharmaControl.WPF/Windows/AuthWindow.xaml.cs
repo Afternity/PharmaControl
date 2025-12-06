@@ -3,6 +3,8 @@ using PharmaControl.Domain.Data.DbContexts;
 using PharmaControl.Domain.Interfaces.MainInterfaces;
 using PharmaControl.Domain.Interfaces.NavigationInterfaces;
 using PharmaControl.Domain.Models;
+using PharmaControl.WPF.ContractModels;
+using System.Threading.Tasks;
 using System.Windows;
 
 namespace PharmaControl.WPF.Windows
@@ -21,8 +23,22 @@ namespace PharmaControl.WPF.Windows
         {
             InitializeComponent();
             _context = new PharmaControlDbContext();
+            EmailTextBox.Text = "ivanova@pharma.ru";
+            PasswordTextBox.Text = "pharm123";
         }
 
+        private async void AuthButton_Click(
+            object sender,
+            RoutedEventArgs e)
+        {
+            EmployeeProfile.Profile = await AuthAsync(
+                EmailTextBox.Text,
+                PasswordTextBox.Text);
+
+            await Task.Delay(2000);
+
+            ShowMainWindow();
+        }
         public async Task<Employee> AuthAsync(
            string email,
            string password)

@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmaControl.WPF.Windows"
         mc:Ignorable="d"
-        Title="MedicineTypeInfoWindow" Height="450" Width="800">
+        Title="MedicineTypeInfoWindow" Height="180" Width="300"
+        Loaded="Window_Loaded">
     <Grid>
-        
+        <Border Margin="10">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" ShadowDepth="5"  Color="Black" Direction="5"/>
+            </Border.Effect>
+            <Grid Background="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="70"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Тип:" VerticalAlignment="Bottom"/>
+                <TextBlock Text="Описание:" Grid.Row="1" VerticalAlignment="Top"/>
+
+                <TextBox x:Name="NameTextBox" Grid.Column="1" IsReadOnly="True"/>
+                <TextBox x:Name="DescriptionTextBox" Grid.Column="1" Grid.Row="1" TextWrapping="Wrap" IsReadOnly="True" Height="100"/>
+            </Grid>
+        </Border>
     </Grid>
 </Window>
