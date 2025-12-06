@@ -1,0 +1,15 @@
+﻿using PharmaControl.Domain.Models;
+
+namespace PharmaControl.Domain.Interfaces
+{
+    public interface IProfile
+    {
+        Task<int> GetPharmacySaleCountAsync(
+            Employee employee,
+            Pharmacy pharmacy);
+        Task<Employee> GetEmployeeAsync(
+            Employee model);
+        Task<Pharmacy> GetEmployeeParmacyAsync(
+            Employee model);
+    }
+}

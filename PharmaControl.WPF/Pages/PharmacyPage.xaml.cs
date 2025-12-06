@@ -1,4 +1,8 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -9,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PharmaControl.WPF
+namespace PharmaControl.WPF.Pages
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Логика взаимодействия для PharmacyPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PharmacyPage : Page
     {
-        public MainWindow()
+        public PharmacyPage()
         {
             InitializeComponent();
         }

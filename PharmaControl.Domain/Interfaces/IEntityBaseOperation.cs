@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PharmaControl.Domain.Interfaces
 {
-    public interface IBaseOperation<T>
+    public interface IEntityBaseOperation<T>
     {
         Task CreateAsync(T model);
         Task UpdateAsync(T model);
