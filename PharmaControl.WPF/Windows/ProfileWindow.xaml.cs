@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PharmaControl.Domain.Data.DbContexts;
-using PharmaControl.Domain.Interfaces;
+using PharmaControl.Domain.Interfaces.MainInterfaces;
+using PharmaControl.Domain.Interfaces.NavigationInterfaces;
 using PharmaControl.Domain.Models;
 using PharmaControl.WPF.ContractModels;
 using System.Windows;

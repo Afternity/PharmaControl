@@ -1,4 +1,4 @@
-﻿namespace PharmaControl.Domain.Interfaces
+﻿namespace PharmaControl.Domain.Interfaces.NavigationInterfaces
 {
     public interface INavigateProfileWindow
     {

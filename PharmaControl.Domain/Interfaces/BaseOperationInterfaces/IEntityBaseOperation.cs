@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PharmaControl.Domain.Interfaces
+namespace PharmaControl.Domain.Interfaces.BaseInterfaces
 {
     public interface IEntityBaseOperation<T>
     {

@@ -1,7 +1,7 @@
-﻿using PharmaControl.Domain.Interfaces;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using PharmaControl.WPF.Pages;
+using PharmaControl.Domain.Interfaces.NavigationInterfaces;
 
 namespace PharmaControl.WPF.Windows
 {

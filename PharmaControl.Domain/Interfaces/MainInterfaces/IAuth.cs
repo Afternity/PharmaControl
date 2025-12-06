@@ -1,6 +1,6 @@
 ﻿using PharmaControl.Domain.Models;
 
-namespace PharmaControl.Domain.Interfaces
+namespace PharmaControl.Domain.Interfaces.MainInterfaces
 {
     public interface IAuth
     {
