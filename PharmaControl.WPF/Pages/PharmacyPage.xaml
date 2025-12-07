@@ -6,9 +6,33 @@
       xmlns:local="clr-namespace:PharmaControl.WPF.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PharmacyPage">
+      Title="Аптеки"
+      Loaded="Page_Loaded">
 
-    <Grid>
-        
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="NameTextBox"/>
+
+        <DataGrid x:Name="PharmaciesDataGrid" 
+                      AutoGenerateColumns="False" 
+                      Height="350"
+                  Grid.Row="1">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="150"/>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Width="200"/>
+                <DataGridTextColumn Header="Телефон" Binding="{Binding PhoneNumber}" Width="120"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150"/>
+                <DataGridTextColumn Header="Открытие" Binding="{Binding OpeningTime, StringFormat=hh\\:mm}" Width="80"/>
+                <DataGridTextColumn Header="Закрытие" Binding="{Binding ClosingTime, StringFormat=hh\\:mm}" Width="80"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="SearchButton" Click="SearchButton_Click" Content="Найти" Grid.Row="2"/>
+
     </Grid>
 </Page>

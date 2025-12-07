@@ -49,6 +49,7 @@ namespace PharmaControl.WPF.Windows
                 }
 
                 var entity = await _context.Medicines
+                    .Include(medicine => medicine.MedicineType)
                     .FirstOrDefaultAsync(medicine =>
                         medicine.Id == model.Id,
                         tokenSourse.Token);

@@ -17,6 +17,7 @@ namespace PharmaControl.WPF.Pages
     {
         private readonly PharmaControlDbContext _context;
         private readonly Pharmacy _pharmacy;
+
         public MedicineTypePage()
         {
             InitializeComponent();
@@ -24,33 +25,34 @@ namespace PharmaControl.WPF.Pages
             _pharmacy = PharmacyProfile.Profile;
         }
 
-        public async Task<IList<MedicineType>> GetAllAsync(
-            Pharmacy model)
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var medicineTypes = await GetAllAsync(_pharmacy);
+            MedicineTypesDataGrid.ItemsSource = medicineTypes;
+        }
+
+        public async Task<IList<MedicineType>> GetAllAsync(Pharmacy model)
         {
             try
             {
                 using var tokenSourse = new CancellationTokenSource(10000);
 
-                if (model == null ||
-                    model.Id == Guid.Empty)
+                if (model == null || model.Id == Guid.Empty)
                 {
-                    throw new ArgumentNullException(
-                        "Аптека не выбрана");
+                    throw new ArgumentNullException("Аптека не выбрана");
                 }
 
                 var medicineTypes = await _context.PharmacyStocks
-                    .Where(pharmacyStock =>
-                        pharmacyStock.PharmacyId == model.Id)
-                    .Include(ps => ps.Medicine) 
-                        .ThenInclude(m => m.MedicineType) 
-                    .Select(ps => ps.Medicine.MedicineType) 
-                    .Distinct() 
+                    .Where(pharmacyStock => pharmacyStock.PharmacyId == model.Id)
+                    .Include(ps => ps.Medicine)
+                        .ThenInclude(m => m.MedicineType)
+                    .Select(ps => ps.Medicine.MedicineType)
+                    .Distinct()
                     .ToListAsync(tokenSourse.Token);
 
                 if (medicineTypes.Count == 0)
                 {
-                    throw new ArgumentException(
-                        "На данный момент аптека не имеет лекарств.");
+                    throw new ArgumentException("На данный момент аптека не имеет лекарств.");
                 }
 
                 return medicineTypes;

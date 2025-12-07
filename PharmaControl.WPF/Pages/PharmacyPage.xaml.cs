@@ -2,7 +2,7 @@
 using PharmaControl.Domain.Data.DbContexts;
 using PharmaControl.Domain.Interfaces.OperationInterfaces;
 using PharmaControl.Domain.Models;
-using System.Net.NetworkInformation;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -16,12 +16,30 @@ namespace PharmaControl.WPF.Pages
         IReadPharmacy
     {
         private readonly PharmaControlDbContext _context;
-        private Medicine _pharmacy = new Medicine();
 
         public PharmacyPage()
         {
             InitializeComponent();
             _context = new PharmaControlDbContext();
+        }
+
+        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var pharmacies = await GetAllAsync();
+            PharmaciesDataGrid.ItemsSource = pharmacies;
+        }
+
+        private async void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            var entity = new Medicine()
+            {
+                Name = NameTextBox.Text
+            };
+
+            var entities = await GetAllByMedicineAsync(
+                entity);
+
+            PharmaciesDataGrid.ItemsSource = entities;
         }
 
         public async Task<IList<Pharmacy>> GetAllAsync()
@@ -36,8 +54,7 @@ namespace PharmaControl.WPF.Pages
 
                 if (entities.Count == 0)
                 {
-                    throw new ArgumentException(
-                        "На данный момент аптека не имеет лекарств.");
+                    throw new ArgumentException("На данный момент аптеки не найдены.");
                 }
 
                 return entities;
@@ -59,8 +76,7 @@ namespace PharmaControl.WPF.Pages
             }
         }
 
-        public async Task<IList<Pharmacy>> GetAllByMedicineAsync(
-            Medicine model)
+        public async Task<IList<Pharmacy>> GetAllByMedicineAsync(Medicine model)
         {
             try
             {
@@ -68,8 +84,7 @@ namespace PharmaControl.WPF.Pages
 
                 if (string.IsNullOrWhiteSpace(model.Name))
                 {
-                    throw new ArgumentNullException(
-                        "Название лекарства не выбрано");
+                    throw new ArgumentNullException("Название лекарства не выбрано");
                 }
 
                 var entities = await _context.PharmacyStocks
@@ -79,14 +94,13 @@ namespace PharmaControl.WPF.Pages
                     .Where(pharmacyStock =>
                          (string.IsNullOrWhiteSpace(model.Name)
                          || pharmacyStock.Medicine.Name.Contains(model.Name)))
-                    .Select(pharmacy => 
-                        pharmacy.Pharmacy)
+                    .Select(pharmacy => pharmacy.Pharmacy)
+                    .Distinct()
                     .ToListAsync(tokenSourse.Token);
 
                 if (entities.Count == 0)
                 {
-                    throw new ArgumentException(
-                        "На данный момент ни одна аптека не имеет данных лекарств.");
+                    throw new ArgumentException("На данный момент ни одна аптека не имеет данных лекарств.");
                 }
 
                 return entities;

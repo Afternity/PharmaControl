@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmaControl.WPF.Windows"
         mc:Ignorable="d"
-        Title="PharmacyStockInfoWindow" Height="120" Width="450"
+        Title="На складе" Height="150" Width="450"
         Loaded="Window_Loaded">
     <Grid>
         <Border Margin="10">

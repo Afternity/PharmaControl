@@ -27,13 +27,32 @@ namespace PharmaControl.WPF.Windows
             PasswordTextBox.Text = "pharm123";
         }
 
+        private async void Window_Loaded(
+            object sender,
+            RoutedEventArgs e)
+        {
+            var entity = await AuthAsync(
+                EmailTextBox.Text,
+                PasswordTextBox.Text);
+
+            EmployeeProfile.Profile = entity;
+            PharmacyProfile.Profile = entity.Pharmacy;
+
+            await Task.Delay(2000);
+
+            ShowMainWindow();
+        }
+
         private async void AuthButton_Click(
             object sender,
             RoutedEventArgs e)
         {
-            EmployeeProfile.Profile = await AuthAsync(
+            var entity = await AuthAsync(
                 EmailTextBox.Text,
                 PasswordTextBox.Text);
+
+            EmployeeProfile.Profile = entity;
+            PharmacyProfile.Profile = entity.Pharmacy;
 
             await Task.Delay(2000);
 

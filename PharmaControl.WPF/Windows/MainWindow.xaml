@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PharmaControl.WPF.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200"
-        WindowStartupLocation="CenterScreen">
+        Title="MainWindow" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="160"/>
@@ -15,7 +16,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="40"/>
             <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <Border Margin="10" Grid.Column="1" Grid.Row="1">

@@ -20,6 +20,11 @@ namespace PharmaControl.WPF.Windows
             _frame = MainFrame;
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            ShowSalePagePage();
+        }
+
         private void ShowProfileWindowButton_Click(object sender, RoutedEventArgs e)
         {
             ShowProfileWindow();
