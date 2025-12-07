@@ -9,7 +9,7 @@
       Title="Аптеки"
       Loaded="Page_Loaded">
 
-    <Grid Background="White">
+    <Grid Style="{StaticResource BorderGrid}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -21,9 +21,9 @@
         <DataGrid x:Name="PharmaciesDataGrid" 
                       AutoGenerateColumns="False" 
                       Height="350"
-                  Grid.Row="1">
+                  Grid.Row="1" Margin="20">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="150"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="100"/>
                 <DataGridTextColumn Header="Адрес" Binding="{Binding Address}" Width="200"/>
                 <DataGridTextColumn Header="Телефон" Binding="{Binding PhoneNumber}" Width="120"/>
                 <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="150"/>

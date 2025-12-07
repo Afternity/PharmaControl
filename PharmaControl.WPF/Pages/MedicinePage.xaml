@@ -9,7 +9,7 @@
       Title="Лекарства"
       Loaded="Page_Loaded">
 
-    <Grid Background="White">
+    <Grid Style="{StaticResource BorderGrid}">
         <StackPanel Margin="20">
 
             <DataGrid x:Name="MedicinesDataGrid" 

@@ -14,7 +14,7 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="5"  Color="Black" Direction="5"/>
             </Border.Effect>
-            <Grid Background="White">
+            <Grid Style="{StaticResource BorderGrid}">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="60"/>
                     <ColumnDefinition/>

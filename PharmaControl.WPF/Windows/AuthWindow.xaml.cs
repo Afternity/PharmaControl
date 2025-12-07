@@ -31,16 +31,16 @@ namespace PharmaControl.WPF.Windows
             object sender,
             RoutedEventArgs e)
         {
-            var entity = await AuthAsync(
-                EmailTextBox.Text,
-                PasswordTextBox.Text);
+            //var entity = await AuthAsync(
+            //    EmailTextBox.Text,
+            //    PasswordTextBox.Text);
 
-            EmployeeProfile.Profile = entity;
-            PharmacyProfile.Profile = entity.Pharmacy;
+            //EmployeeProfile.Profile = entity;
+            //PharmacyProfile.Profile = entity.Pharmacy;
 
-            await Task.Delay(2000);
+            //await Task.Delay(2000);
 
-            ShowMainWindow();
+            //ShowMainWindow();
         }
 
         private async void AuthButton_Click(

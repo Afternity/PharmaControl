@@ -6,7 +6,7 @@
     <Application.Resources>
 
         <Style TargetType="Button">
-            <Setter Property="Background" Value="#8F8E51"/>
+            <Setter Property="Background" Value="#045742"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Width" Value="150"/>
             <Setter Property="Margin" Value="5"/>
@@ -27,6 +27,13 @@
             <Setter Property="Margin" Value="5"/>
         </Style>
 
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="#38A38A"/>
+        </Style>
+
+        <Style TargetType="Grid" x:Key="BorderGrid">
+            <Setter Property="Background" Value="#57CFA5"/>
+        </Style>
 
     </Application.Resources>
 </Application>

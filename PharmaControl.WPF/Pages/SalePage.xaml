@@ -9,7 +9,7 @@
       Title="Оформление продажи"
       >
 
-    <Grid Background="White">
+    <Grid Style="{StaticResource BorderGrid}">
         <Border Margin="30" 
                 HorizontalAlignment="Center" 
                 VerticalAlignment="Center">
